@@ -1,0 +1,16 @@
+<h1 class="float center">Welcome to {{hotelName}}</h1>
+<div [hidden]="hideRooms">
+    <div  [innerText]="numberOfRooms"></div>
+</div>
+
+<div>{{ourselectedRoom | json}}</div>
+
+<div *ngIf="room.availableRooms >0">
+    <app-room-list 
+    [roomsList]="roomList"
+    (roomSelected)="selectRoom($event)">
+</app-room-list>
+</div>
+<button (click)="toggle()">Toggle</button>
+<div>
+    <button class="btn btn-success" (click)="addRoom()">Room</button></div>
